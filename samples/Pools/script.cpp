@@ -6,7 +6,7 @@
 #include <thread>
 #include <Windows.h>
 
-#define TICK_MARGIN 100
+#define ARTIFICIAL_TICK_MARGIN 200
 
 bool promptKeyActivated = false;
 
@@ -23,15 +23,19 @@ bool key_pressed(int key){
 
 void update(){
 
-	if (key_pressed(VK_F9)) {
+
+
+	if (key_pressed(VK_F9)){
+
 		if(!promptKeyActivated){
+
 			print_message("Can you see this?");
 		}
 		else {
-			print_message("Second message");
+
+			print_message("Second");
 		}
 		promptKeyActivated = !promptKeyActivated;
-		WAIT(TICK_MARGIN);
 	}
 }
 
@@ -40,7 +44,7 @@ void main()
 	while (true)
 	{
 		update();
-		WAIT(0);
+		WAIT(ARTIFICIAL_TICK_MARGIN);
 	}
 }
 
